@@ -1,0 +1,22 @@
+{
+  "name": "playwright-playground",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UhgoFR/playwright-playground.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/UhgoFR/playwright-playground/issues"
+  },
+  "homepage": "https://github.com/UhgoFR/playwright-playground#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.58.2",
+    "@types/node": "^25.3.2"
+  }
+}
