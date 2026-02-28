@@ -12,7 +12,11 @@ import { defineConfig, devices } from '@playwright/test';
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
-  testDir: './tests',
+  testDir: './',
+  testMatch: [
+    'swag-labs/tests/**/*.spec.{js,ts}',
+    'RegressionTests/tests/**/*.spec.{js,ts}'
+  ],
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -30,6 +34,14 @@ export default defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
+    
+    /* Run tests in headed mode to see the browser UI */
+    headless: false,
+    
+    /* Slow down operations for better visibility */
+    launchOptions: {
+      slowMo: 100,
+    },
   },
 
   /* Configure projects for major browsers */
