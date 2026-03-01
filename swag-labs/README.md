@@ -112,27 +112,42 @@ The Playwright configuration is set up to:
 - Run tests in parallel across multiple browsers (Chromium, Firefox, WebKit)
 - Generate HTML reports by default
 - Include both `./tests` and `./swag-labs/tests` directories
-- **Run in headed mode** (visible browser UI) for better debugging
-- **Slow down operations** (100ms delay) for better visibility
+- **Run in headless mode by default** for CI optimization
+- **Slow down operations** (100ms delay) for better local debugging
 
-### UI Visibility Settings
-The tests are configured to run with visible browser UI:
-- `headless: false` - Shows browser window during execution
-- `slowMo: 100` - Adds 100ms delay between actions for better visibility
-- Perfect for debugging and watching test execution
+### Execution Modes
 
-To run tests in headless mode (faster execution):
+#### Default Mode (Headless)
+Tests run in headless mode by default for optimal performance:
 ```bash
-npx playwright test --headed=false
+# Default execution (headless)
+npx playwright test swag-labs/tests/
+
+# CI execution (headless)
+npx playwright test swag-labs/tests/
 ```
 
-To adjust speed during execution:
+#### Debug Mode (Headed)
+For debugging and visual verification:
+```bash
+# Run with visible browser UI
+npx playwright test swag-labs/tests/ --headed
+
+# Run with specific browser
+npx playwright test swag-labs/tests/ --project=chromium --headed
+```
+
+#### Speed Control
+Adjust execution speed during testing:
 ```bash
 # Run faster (less delay)
-npx playwright test --slow-mo=50
+npx playwright test swag-labs/tests/ --slow-mo=50
 
 # Run slower (more delay)
-npx playwright test --slow-mo=200
+npx playwright test swag-labs/tests/ --slow-mo=200
+
+# Run without delay (fastest)
+npx playwright test swag-labs/tests/ --slow-mo=0
 ```
 
 ## Locators
