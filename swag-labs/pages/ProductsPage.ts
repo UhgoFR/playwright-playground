@@ -112,6 +112,31 @@ export class ProductsPage extends BasePage {
     await this.shoppingCartLink.click();
   }
 
+  async getShoppingCartBadgeCount(): Promise<number> {
+    const cartBadge = this.page.locator('[data-test="shopping-cart-badge"]');
+    const badgeText = await cartBadge.textContent();
+    return badgeText ? parseInt(badgeText) : 0;
+  }
+
+  async isShoppingCartBadgeVisible(): Promise<boolean> {
+    const cartBadge = this.page.locator('[data-test="shopping-cart-badge"]');
+    return await cartBadge.isVisible();
+  }
+
+  async goToCheckout(): Promise<void> {
+    // First go to cart
+    await this.clickShoppingCart();
+    
+    // Then click checkout button
+    const checkoutButton = this.page.locator('[data-test="checkout"]');
+    await checkoutButton.click();
+  }
+
+  async isCheckoutButtonVisible(): Promise<boolean> {
+    const checkoutButton = this.page.locator('[data-test="checkout"]');
+    return await checkoutButton.isVisible();
+  }
+
   async clickMenuButton(): Promise<void> {
     await this.menuButton.click();
   }
