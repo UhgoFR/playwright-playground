@@ -15,7 +15,8 @@ export default defineConfig({
   testDir: './',
   testMatch: [
     'swag-labs/tests/**/*.spec.{js,ts}',
-    'RegressionTests/tests/**/*.spec.{js,ts}'
+    'RegressionTests/tests/**/*.spec.{js,ts}',
+    'api-petstore/test/**/*.spec.{js,ts}'
   ],
   /* Run tests in files in parallel */
   fullyParallel: true,

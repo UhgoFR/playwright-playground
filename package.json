@@ -3,7 +3,15 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "playwright test",
+    "test:pet": "playwright test api-petstore/test/PetTest.spec.ts",
+    "test:store": "playwright test api-petstore/test/StoreTest.spec.ts",
+    "test:user": "playwright test api-petstore/test/UserTest.spec.ts",
+    "test:api": "playwright test api-petstore/test/",
+    "test:debug": "playwright test --debug",
+    "test:report": "playwright show-report"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/UhgoFR/playwright-playground.git"
